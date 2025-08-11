@@ -1,0 +1,39 @@
+package com.bank;
+import java.util.Random;
+import java.util.Scanner;
+public class bank {
+    public static void main(String[]args) {
+    Scanner sc = new Scanner(System.in);
+    int mynum = (int)(Math.random()*100);
+    int usernum = 0;
+    
+    System.out.println("Welcome to the NUMBER GUSSER!");
+    System.out.println("I have selected a number between 1-100! You have to guess it!");
+    System.out.println("So are you ready?");
+    String ans = sc.next();
+    int attempts = 0;
+    
+    if(ans.equalsIgnoreCase("yes")) {
+    	System.out.println("Ohkk! I have selected a number.");
+    	do {
+    		System.out.println("Now guess it!");
+        	usernum = sc.nextInt();
+        	attempts++;
+    		if(mynum == usernum) {
+    			System.out.println("✅ Correct! You guessed it in " + attempts + " tries.");
+    			break;
+    		}
+    		else if(usernum > mynum){
+    			System.out.println("Too Large! Try smaller one....");
+    		}
+    		else {
+    		    System.out.println("Too small! Try larger one....");
+    		}
+    	}while(usernum != mynum);
+    }
+    else {
+		System.out.println("Ohk! See you soon...!");
+	}
+    System.out.println("The number was "+mynum);
+}
+}
